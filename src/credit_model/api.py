@@ -1,11 +1,13 @@
-from fastapi import FastAPI
+from typing import List
+
 import joblib
 import pandas as pd
+from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import List
 
 app = FastAPI(title="Credit-G Prediction API")
 model = joblib.load("models/lr.joblib")
+
 
 class CreditInput(BaseModel):
     checking_status: str
@@ -29,9 +31,11 @@ class CreditInput(BaseModel):
     own_telephone: str
     foreign_worker: str
 
+
 @app.get("/health")
 def health():
     return {"status": "healthy"}
+
 
 @app.post("/predict")
 def predict(data: List[CreditInput]):

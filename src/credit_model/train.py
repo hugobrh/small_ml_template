@@ -49,6 +49,7 @@ def train():
         # Save locally for API
         Path("models").mkdir(exist_ok=True)
         import joblib
+
         joblib.dump(model, "models/lr.joblib")
         print(f"LR model trained with accuracy: {score}")
 
@@ -58,6 +59,7 @@ def train():
     # print("Feature names and types:")
     # for name, dtype in zip(feature_names, feature_dtypes):
     #     print(f"{name}: {dtype}")
+
 
 if __name__ == "__main__":
     train()
