@@ -1,5 +1,5 @@
-import pytest
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
+
 from src.credit_model.train import train
 
 
@@ -25,5 +25,4 @@ def test_train_runs(mock_mlflow, mock_fetch):
     try:
         train()
     except Exception:
-        # We expect this to fail with mocked data, but we're testing it doesn't crash immediately
         pass
