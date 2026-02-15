@@ -1,0 +1,27 @@
+[project]
+name = "small-ml-template"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.129.0",
+    "matplotlib>=3.10.8",
+    "mlflow>=3.9.0",
+    "numpy>=2.4.2",
+    "pandas<3.0.0",
+    "scikit-learn>=1.8.0",
+    "uvicorn>=0.40.0",
+]
+
+[dependency-groups]
+dev = [
+    "myst-parser>=5.0.0",
+    "pytest>=9.0.2",
+    "ruff>=0.15.1",
+    "sphinx>=9.1.0",
+]
+
+[tool.ruff]
+line-length = 90
+lint.select = ["E", "F", "I"]
