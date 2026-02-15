@@ -17,10 +17,10 @@ def test_train_runs(mock_mlflow, mock_fetch):
     mock_data.data = MagicMock()
     mock_data.target = MagicMock()
     mock_fetch.return_value = mock_data
-    
+
     # Mock data selection
     mock_data.data.select_dtypes.return_value.columns = []
-    
+
     # This is a minimal test - just ensure function can be called
     try:
         train()
