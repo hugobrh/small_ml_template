@@ -1,30 +1,6 @@
-from pathlib import Path
-
-import joblib
 from fastapi.testclient import TestClient
 
 from src.credit_model.api import app
-
-# Ensure a dummy model exists so tests pass even when `models/` is gitignored.
-models_dir = Path("models")
-models_dir.mkdir(exist_ok=True)
-
-
-class _DummyModel:
-    def predict(self, X):
-        # return a list of zeros with the same length as input
-        try:
-            length = len(X)
-        except Exception:
-            length = 1
-        return [0] * length
-
-
-# write a lightweight joblib file if missing
-model_path = models_dir / "lr.joblib"
-if not model_path.exists():
-    joblib.dump(_DummyModel(), model_path)
-
 
 client = TestClient(app)
 

@@ -18,6 +18,3 @@ data/
 # mlflow files
 mlruns/
 mlflow.db
-
-# model files
-models/
