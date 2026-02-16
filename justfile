@@ -1,4 +1,4 @@
-install-dev:
+install-all:
     uv sync
 
 install-prod:
@@ -24,3 +24,6 @@ train:
 
 serve:
     uv run uvicorn src.credit_model.api:app --reload
+
+docker-build:
+    docker build -t credit-g-app .
